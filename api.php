@@ -8,7 +8,7 @@
 <body>
 <ol>
   <li>&lt;?php</li>
-  <li>$str=file_get_contents('http://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1');</li>
+  <li>$str=file_get_contents('https://cn.bing.com/HPImageArchive.aspx?idx=0&n=1');</li>
   <li>if (preg_match("/\/(.+?).jpg/", $str, $matches)) {</li>
   <li>$imgurl='http://s.cn.bing.net'.$matches[0];</li>
   <li>}</li>
