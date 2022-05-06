@@ -1,1 +1,0 @@
-var $url="/logout",data=utils.init({}),methods={logout:function(){localStorage.removeItem(ACCESS_TOKEN_NAME),this.redirect()},redirect:function(){window.top.location.href=utils.getRootUrl("login")}},$vue=new Vue({el:"#main",data:data,methods:methods,created:function(){this.logout()}});
