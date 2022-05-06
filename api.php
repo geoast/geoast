@@ -6,6 +6,23 @@
 </head>
 
 <body>
-<pre>&lt;?php  //从bing获取数据  $str = file_get_contents('https://cn.bing.com/HPImageArchive.aspx?idx=0&amp;n=1');    if (preg_match("/&lt;url&gt;(.+?)&lt;/url&gt;/ies", $str, $matches)) {      //正则匹配抓取图片url      $imgurl = 'https://cn.bing.com' . $matches[1];  } else {      //使用默认的图像      $imgurl = 'https: //picsum.photos/1920/1080/?random';  }  header("Location: $imgurl");  ?&gt;</pre>
+<ol>
+  <li>&lt;?php</li>
+  <li>$str=file_get_contents('http://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1');</li>
+  <li>if (preg_match("/\/(.+?).jpg/", $str, $matches)) {</li>
+  <li>$imgurl='http://s.cn.bing.net'.$matches[0];</li>
+  <li>}</li>
+  <li>if ($imgurl) {</li>
+  <li>header('Content-Type: image/JPEG');</li>
+  <li>@ob_end_clean();</li>
+  <li>@readfile($imgurl);</li>
+  <li>@flush();</li>
+  <li>@ob_flush();</li>
+  <li>exit();</li>
+  <li>} else {</li>
+  <li>exit('error');</li>
+  <li>}</li>
+  <li>?&gt;</li>
+</ol>
 </body>
 </html>
